@@ -3,9 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Odds and Statistics</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Odds<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Statistics</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Favorite Teams
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
+                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+            <!-- input for team search  -->
+             <div class="mb-3">
+                <label for="inputTeam" class="form-label">Search NBA teams</label>
+                <input type="text" class="form-control" id="inputTeam">
+             </div>
+            <!-- input for date/season -->
+            <div class="mb-3">
+              <label for="inputSeason" class="form-label">Enter date/season</label>
+              <input type="text" class="form-control" id="inputSeason">
+            </div>
+            <!-- search button -->
+            <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+        </form>
+
+        <div id="showStats">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+        
+        <!-- column for gif -->
+        <div class="col-md-3">
+            <div id="showGif">gif display here</div>
+        </div>
+        <!-- column for search history -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body" id="showSearchHistory">
+                  show search history here
+                </div>
+            </div>
+        </div>
+        
+
+
+
+    </div>
+</div>
+    
+    <!-- double check this is the right Bootstrap link for Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="app.js"></script>   
+
 
 </body>
 </html>
