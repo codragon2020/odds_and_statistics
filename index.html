@@ -8,10 +8,12 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <!-- Basketball Icon  -->
+    <script src="https://kit.fontawesome.com/99dad7dc51.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <a class="navbar-brand" href="#">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -20,29 +22,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Odds<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Statistics<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Statistics</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Favorite Teams
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
-                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">a team, maybe linked to their statistics</a>
-              </div>
+              <a class="nav-link" href="#">Odds</a>
             </li>
           </ul>
+          <form class="form-inline">
+            <i class="fas fa-basketball-ball"></i>
+          </form>
         </div>
       </nav>
 
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-8">
             <form>
             <!-- input for team search  -->
              <div class="mb-3">
@@ -58,7 +52,7 @@
             <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
         </form>
 
-        <div id="showStats">
+        <div id="showStats" class="table-div">
             <table class="table">
                 <thead>
                   <tr>
@@ -89,18 +83,17 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- div for gif display -->
+              <div id="showGif">gif display here</div>
         </div>
     </div>
         
-        <!-- column for gif -->
-        <div class="col-md-3">
-            <div id="showGif">gif display here</div>
-        </div>
         <!-- column for search history -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card">
-                <div class="card-body" id="showSearchHistory">
-                  show search history here
+                <div class="card-body">
+                  <h5 class="card-title">Search History</h5>
+                  <p id="displaySearchHistory"></p>
                 </div>
             </div>
         </div>
