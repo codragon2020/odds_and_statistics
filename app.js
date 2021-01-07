@@ -1,7 +1,5 @@
 $(document).ready(function(){
     
-    // var teamId = "";
-
     function teamStats(teamId) {
         // teamId = 18;
         console.log(teamId);  // pulls the teamId
