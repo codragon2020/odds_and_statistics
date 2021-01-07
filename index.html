@@ -38,6 +38,9 @@
         <div class="row">
           <div class="col-md-8">
             <form>
+              <div class="form-group">
+                <button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
+              </div>
             <!-- input for team search  -->
              <div class="mb-3">
                 <label for="inputTeam" class="form-label">Search NBA teams</label>
@@ -97,13 +100,31 @@
                 </div>
             </div>
         </div>
-        
-
-
-
-    </div>
+      </div>
 </div>
     
+<!-- instructions modal -->
+<section id="modalInstructions" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h2 class="modal-title">Instructions:</h2>
+          </div>
+          <div class="modal-body text-left" id="updateText">
+              <ul>
+                  <li>Enter the team you want to get stats for</li>
+                  <li>Enter the year you would like stats from</li>
+                  <li>Behold stats!</li>
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
+          </div>
+      </div>
+  </div>
+</section>
+    
+
     <!-- double check this is the right Bootstrap link for Javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="app.js"></script>   
