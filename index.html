@@ -20,134 +20,124 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Statistics<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Odds</a>
-            </li>
-          </ul>
-          <form class="form-inline">
-            <i class="fas fa-basketball-ball"></i>
-          </form>
+        	<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+				<a class="nav-link" href="#">Statistics<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">Odds</a>
+				</li>
+			</ul>
+          	<form class="form-inline">
+				<i class="fas fa-basketball-ball"></i>
+			</form>
         </div>
-      </nav>
+    </nav>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <form>
-              <div class="form-group">
-                <button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
-              </div>
-            <!-- input for team search  -->
-             <div class="mb-3">
-                <label for="inputTeam" class="form-label">Search NBA teams</label>
-                <input type="text" class="form-control" id="inputTeam">
-             </div>
-            <!-- input for date/season -->
-            <div class="mb-3">
-              <label for="inputSeason" class="form-label">Enter date/season</label>
-              <input type="text" class="form-control" id="inputSeason">
-            </div>
-            <!-- search button -->
-            <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
-        </form>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<form id="inputForm" autocomplete="off">
+					<div class="form-group">
+						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
+					</div>
+					<!-- input for team search  -->
+					<div class="mb-3">
+						<label for="inputTeam" class="form-label">NBA Team Name</label>
+						<input type="text" class="form-control" id="inputTeam" placeholder="Team...">
+					</div>
+					<!-- input for date/season -->
+					<div class="mb-3">
+						<label for="inputSeason" class="form-label">Enter Year of Season</label>
+						<input type="text" class="form-control" id="inputSeason" placeholder="Year...">
+					</div>
+					<!-- search button -->
+					<button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+				</form>
 
-        <div id="showStats" class="table-div">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- div for gif display -->
-              <div id="showGif">gif display here</div>
-        </div>
-    </div>
+				<div id="showStats" class="table-div">
+					<table class="table">
+						<thead>
+						<tr>
+							<th scope="col">W / L</th>
+							<th scope="col">Avg Pts</th>
+							<th scope="col">+ / -</th>
+							<th scope="col">FG%</th>
+							<th scope="col">Assists</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td id="win_loss"></th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						
+						</tbody>
+					</table>
+					<!-- div for gif display -->
+					<div id="showGif"></div>
+				</div>
+    		</div>
         
-        <!-- column for search history -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Search History</h5>
-                  <p id="displaySearchHistory"></p>
-                </div>
-            </div>
-        </div>
-      </div>
-</div>
+			<!-- column for search history -->
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body">
+					<h5 class="card-title">Search History</h5>
+					<p id="displaySearchHistory"></p>
+					</div>
+				</div>
+			</div>
+      	</div>
+	</div>
     
-<!-- instructions modal linked to specific button via data-target attribute-->
-<section id="modalInstructions" class="modal fade">
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h2 class="modal-title">Instructions:</h2>
-          </div>
-          <div class="modal-body text-left" id="updateText">
-              <ul>
-                  <li>Enter the team you want to get stats for</li>
-                  <li>Enter the year you would like stats from</li>
-                  <li>Behold stats!</li>
-              </ul>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
-          </div>
-      </div>
-  </div>
-</section>
-    
-<!-- modal for error message if user leaves either field blank -->
-<section id="modalError" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h2 class="modal-title">ERROR</h2>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body" id="errorText">
-              <b>Oops! Both fields must be filled to return stats</b>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
-          </div>
-      </div>
-  </div>
-</section>
+	<!-- instructions modal linked to specific button via data-target attribute-->
+	<section id="modalInstructions" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">Instructions:</h2>
+				</div>
+				<div class="modal-body text-left" id="updateText">
+					<ul>
+						<li>Enter the team you want to get stats for</li>
+						<li>Enter the year you would like stats from</li>
+						<li>Behold stats!</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
+				</div>
+			</div>
+		</div>
+	</section>
+		
+	<!-- modal for error message if user leaves either field blank -->
+	<section id="modalError" class="modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">ERROR</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="errorText">
+					<b>Oops! Both fields must be filled to return stats</b>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- double check this is the right Bootstrap link for Javascript -->
+    <!-- AJAX for Stats call -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="app.js"></script>   
-
 
 </body>
 </html>
