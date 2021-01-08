@@ -6,7 +6,7 @@ $(document).ready(function(){
         console.log('button was pushed');
 
         // Variable to be used in url for API call 
-        var team = $("#inputTeam").val()        
+        var team = $("#inputTeam").val();       
         
         // API Call configuration
         const settings = {
@@ -21,7 +21,7 @@ $(document).ready(function(){
         };
         // AJAX call
         $.ajax(settings).done(function (response) {
-            team = $("#inputTeam").val()
+            // team = $("#inputTeam").val()
             console.log(team);
             console.log(response.api.teams[0].teamId); // TeamId
 
@@ -42,7 +42,8 @@ $(document).ready(function(){
         // teamId = 18;
         console.log(teamId);  // pulls the teamId
 
-        var year = 2019;
+        // var year = 2019;
+        var year = $("#inputSeason").val();
 
         var statsResult
         // API Call configuration
@@ -80,4 +81,24 @@ $(document).ready(function(){
             $("#win_loss").html(win + '/' + loss);
         })
     }
+
+    // User must input Team name and Year before clicking Search
+    $("#searchButton").on("click", function (e) {
+        e.preventDefault();
+
+        // If player has not entered team name or year show alert message
+        if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
+            console.log("input is empty")
+            // Set error message on ALERT modal
+            $("#errorText").text("You must enter the Team Name and Year");
+
+            // Display ALERT modal
+            $("#modalError").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            // Exit
+            return;
+        };
+    })
 })
