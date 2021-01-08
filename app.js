@@ -1,5 +1,25 @@
 $(document).ready(function(){
     
+    function inputRequired() {
+        // User must input Team name and Year before clicking Search
+        // If player has not entered team name or year show alert message
+        if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
+            console.log("input is empty")
+            // Set error message on ALERT modal
+            $("#errorText").text("You must enter the Team Name and Year");
+
+            // Display ALERT modal
+            $("#modalError").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            // Exit
+            return;
+        } else {
+            return;
+        }
+    }
+
     // Submit method to pull content from movieForm and run event function
     $("#inputForm").submit(function(event) {
         event.preventDefault();
@@ -8,6 +28,8 @@ $(document).ready(function(){
         // Variable to be used in url for API call 
         var team = $("#inputTeam").val();       
         
+        inputRequired();
+
         // API Call configuration
         const settings = {
             "async": true,
@@ -83,22 +105,22 @@ $(document).ready(function(){
     }
 
     // User must input Team name and Year before clicking Search
-    $("#searchButton").on("click", function (e) {
-        e.preventDefault();
+    // $("#searchButton").on("click", function (e) {
+    //     e.preventDefault();
 
-        // If player has not entered team name or year show alert message
-        if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
-            console.log("input is empty")
-            // Set error message on ALERT modal
-            $("#errorText").text("You must enter the Team Name and Year");
+    //     // If player has not entered team name or year show alert message
+    //     if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
+    //         console.log("input is empty")
+    //         // Set error message on ALERT modal
+    //         $("#errorText").text("You must enter the Team Name and Year");
 
-            // Display ALERT modal
-            $("#modalError").modal({
-                backdrop: 'static',
-                keyboard: false
-            });
-            // Exit
-            return;
-        };
-    })
+    //         // Display ALERT modal
+    //         $("#modalError").modal({
+    //             backdrop: 'static',
+    //             keyboard: false
+    //         });
+    //         // Exit
+    //         return;
+    //     };
+    // })
 })
