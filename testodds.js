@@ -23,6 +23,7 @@ $(document).ready(function(){
         //     ],
         }
     };
+    // changing file 
 
     $.ajax(settings).done(function (response) {
         // team1 = $("#team-1").val();
