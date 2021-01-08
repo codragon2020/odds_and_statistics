@@ -37,19 +37,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<form>
+				<form id="inputForm" autocomplete="off">
 					<div class="form-group">
 						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
 					</div>
 					<!-- input for team search  -->
 					<div class="mb-3">
-						<label for="inputTeam" class="form-label">Search NBA teams</label>
-						<input type="text" class="form-control" id="inputTeam">
+						<label for="inputTeam" class="form-label">NBA Team Name</label>
+						<input type="text" class="form-control" id="inputTeam" placeholder="Team...">
 					</div>
 					<!-- input for date/season -->
 					<div class="mb-3">
-						<label for="inputSeason" class="form-label">Enter date/season</label>
-						<input type="text" class="form-control" id="inputSeason">
+						<label for="inputSeason" class="form-label">Enter Year of Season</label>
+						<input type="text" class="form-control" id="inputSeason" placeholder="Year...">
 					</div>
 					<!-- search button -->
 					<button type="submit" class="btn btn-primary" id="searchButton">Search</button>
@@ -59,35 +59,25 @@
 					<table class="table">
 						<thead>
 						<tr>
-							<th scope="col">#</th>
-							<th scope="col">First</th>
-							<th scope="col">Last</th>
-							<th scope="col">Handle</th>
+							<th scope="col">W / L</th>
+							<th scope="col">Avg Pts</th>
+							<th scope="col">+ / -</th>
+							<th scope="col">FG%</th>
+							<th scope="col">Assists</th>
 						</tr>
 						</thead>
 						<tbody>
 						<tr>
-							<th scope="row">1</th>
+							<td id="win_loss"></th>
 							<td>Mark</td>
 							<td>Otto</td>
 							<td>@mdo</td>
 						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-							<td>@twitter</td>
-						</tr>
+						
 						</tbody>
 					</table>
 					<!-- div for gif display -->
-					<div id="showGif">gif display here</div>
+					<div id="showGif"></div>
 				</div>
     		</div>
         
