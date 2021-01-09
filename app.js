@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        
+    // New line test
     // Instructions modal function
     var instructionsBtn = $("#instructionsButton")
     var instructionsModal = $("#modalInstructions")
