@@ -1,10 +1,14 @@
 $(document).ready(function(){
     
+    var missingInput = false;
+
     function inputRequired() {
         // User must input Team name and Year before clicking Search
         // If player has not entered team name or year show alert message
         if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
             console.log("input is empty")
+            missingInput = true;
+
             // Set error message on ALERT modal
             $("#errorText").text("You must enter the Team Name and Year");
 
@@ -29,6 +33,10 @@ $(document).ready(function(){
         var team = $("#inputTeam").val();       
         
         inputRequired();
+
+        if (missingInput = true) {
+            return;
+        }
 
         // API Call configuration
         const settings = {
