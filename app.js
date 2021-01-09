@@ -33,6 +33,10 @@ $(document).ready(function(){
         
         }
     }
+    var localStorage = {};
+    var keyCount = 0;
+    var teamStore = null;
+    var teamStoreName = null;
 
     // Submit method to pull content from movieForm and run event function
     $("#inputForm").submit(function(event) {
@@ -66,6 +70,12 @@ $(document).ready(function(){
             console.log(team);
             console.log(response.api.teams[0].teamId); // TeamId
 
+            var teamStoreName = $(".list-group").addClass("list-group-item");
+            teamStoreName.append("<li>" + team + "</li>");
+            // Local storage
+            var local = localStorage.setItem(keyCount, team);
+            keyCount = keyCount + 1;
+
             var teamId = response.api.teams[0].teamId;
             console.log('TeamId stored to variable', teamId);
 
@@ -78,6 +88,14 @@ $(document).ready(function(){
             teamStats(teamId);
         });
     })
+
+    for (var i = 0; i < localStorage.length; i++) {
+        var teamStore = localStorage.getItem(i);
+        console.log(teamStore);
+        var teamStoreName = $(".list-group").addClass("list-group-item");
+        teamStoreName.append("<li>" + teamStore + "</li>");
+        }
+        
 
     function teamStats(teamId) {
         // teamId = 18;
