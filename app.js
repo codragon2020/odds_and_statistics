@@ -19,8 +19,7 @@ $(document).ready(function(){
             });
             // Exit
             return;
-        } else {
-            return;
+        
         }
     }
 
@@ -33,8 +32,9 @@ $(document).ready(function(){
         var team = $("#inputTeam").val();       
         
         inputRequired();
-
-        if (missingInput = true) {
+        
+        if (missingInput == true) {
+            console.log('missingInput = True');
             return;
         }
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
 
             // Result to be displayed
             teamResult = `
-            <img style="float:left" class="img-thumnail" width="200" height="200" src="${response.api.teams[0].logo}"/>
+            <img class="img-thumnail displayed" width="200" height="200" src="${response.api.teams[0].logo}"/>
             `
             $("#showGif").html(teamResult);
 
@@ -100,35 +100,23 @@ $(document).ready(function(){
                 if ( standings[i].teamId === teamId ) {
                     // responseTeamId = standings[i];
                     console.log('Inside the for loop, found it ', teamId);
-                    console.log(response.api.standings[i].win)
+                    console.log(response.api.standings[i])
                     console.log(response.api.standings[i].loss)
 
                     var win = response.api.standings[i].win
                     var loss = response.api.standings[i].loss
+                    var confRank = response.api.standings[i].conference.rank
+                    var divRank = response.api.standings[i].division.rank
+                    var winPercent = response.api.standings[i].winPercentage
+                    var winStreak = response.api.standings[i].winStreak
                     break;
                 }
             };
             $("#win_loss").html(win + '/' + loss);
+            $("#conf_rank").html(confRank);
+            $("#div_rank").html(divRank);
+            $("#win_percent").html(winPercent);
+            $("#win_streak").html(winStreak);
         })
     }
-
-    // User must input Team name and Year before clicking Search
-    // $("#searchButton").on("click", function (e) {
-    //     e.preventDefault();
-
-    //     // If player has not entered team name or year show alert message
-    //     if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
-    //         console.log("input is empty")
-    //         // Set error message on ALERT modal
-    //         $("#errorText").text("You must enter the Team Name and Year");
-
-    //         // Display ALERT modal
-    //         $("#modalError").modal({
-    //             backdrop: 'static',
-    //             keyboard: false
-    //         });
-    //         // Exit
-    //         return;
-    //     };
-    // })
 })
