@@ -1,4 +1,15 @@
 $(document).ready(function(){
+        
+    // Instructions modal function
+    var instructionsBtn = $("#instructionsButton")
+    var instructionsModal = $("#modalInstructions")
+        
+    instructionsBtn.click(function(event) {
+        event.preventDefault();
+        instructionsModal.modal("show");
+    
+        });
+    
     
     var missingInput = false;
 
