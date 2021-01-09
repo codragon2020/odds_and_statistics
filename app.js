@@ -1,5 +1,17 @@
 $(document).ready(function(){
     
+    // MODALS
+        
+        // instructions modal
+        var instructionsBtn = $("#instructionsButton")
+        var instructionsModal = $("#modalInstructions")
+        
+        instructionsBtn.click(function(event) {
+            instructionsModal.modal("show");
+    
+        });
+    
+    
     var missingInput = false;
 
     function inputRequired() {
