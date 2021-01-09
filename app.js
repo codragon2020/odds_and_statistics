@@ -75,7 +75,20 @@ $(document).ready(function(){
         // var year = 2019;
         var year = $("#inputSeason").val();
 
-        var statsResult
+        if (year < 2018) {
+
+            // Set error message on ALERT modal
+            $("#yearLimit").text("The data only goes back 3 years");
+
+            // Display Year Limit modal
+            $("#modalError").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            
+            return;
+        }
+
         // API Call configuration
         const stats = {
             "async": true,
