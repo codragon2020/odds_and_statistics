@@ -1,13 +1,12 @@
 $(document).ready(function(){
-    
-    // MODALS
         
-        // instructions modal
-        var instructionsBtn = $("#instructionsButton")
-        var instructionsModal = $("#modalInstructions")
+    // Instructions modal function
+    var instructionsBtn = $("#instructionsButton")
+    var instructionsModal = $("#modalInstructions")
         
-        instructionsBtn.click(function(event) {
-            instructionsModal.modal("show");
+    instructionsBtn.click(function(event) {
+        event.preventDefault();
+        instructionsModal.modal("show");
     
         });
     

@@ -1,15 +1,4 @@
-$(document).ready(function(){
-
-    var instructionsBtn = $("#instructionsButton")
-    var instructionsModal = $("#modalInstructions")
-    
-    
-    instructionsBtn.click(function(event) {
-        instructionsModal.modal("show");
-
-
-});
-});
+// $(document).ready(function(){
 
 //     // $("#oddsForm").submit(function(event) {
 //     //     event.preventDefault();
