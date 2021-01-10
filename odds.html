@@ -40,47 +40,38 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<form id="inputForm" autocomplete="off">
+				<form id="oddsForm" autocomplete="off">
 					<div class="form-group">
 						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
 					</div>
-					<!-- input for team search  -->
+					<!-- input for team search 
 					<div class="mb-3">
-						<label for="inputTeam" class="form-label">NBA Team Name</label>
-						<input type="text" class="form-control" id="inputTeam" placeholder="Team...">
+						<label for="inputTeam1" class="form-label">Team Name 1</label>
+						<input type="text" class="form-control" id="inputTeam1" placeholder="Team 1...">
 					</div>
 					<!-- input for date/season -->
-					<div class="mb-3">
-						<label for="inputSeason" class="form-label">Enter Year of Season</label>
-						<input type="text" class="form-control" id="inputSeason" placeholder="Year...">
-					</div>
+					<!-- <div class="mb-3"> -->
+						<!-- <label for="inputTeam2" class="form-label">Team Name 2</label>
+						<input type="text" class="form-control" id="inputTeam2" placeholder="Team 2...">
+					</div> -->
 					<!-- search button -->
-					<button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+					<button type="submit" class="btn btn-primary" id="pullOdds">Search</button>
 				</form>
 
-				<div id="showStats" class="table-div">
-					<table class="table">
-						<thead>
-						<tr>
-							<th scope="col">Value 1</th>
-							<th scope="col">Value 2</th>
-							<th scope="col">Value 3</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td id="val_1"></td>
-							<td id="val_2"></td>
-							<td id="val_3"></td>
-						</tr>
-						
-						</tbody>
-					</table>
+				<div class="container" id="team_list">
+					<!-- Output of team list -->
+				</div>
+				
+				
+
+				<div id="showOdds" class="table-div">
+					<div id="result"></div>
 					<!-- div for gif display -->
-					<div id="showGif"></div>
+					<div id="showTeamGif1"></div>
+					<div id="showTeamGif2"></div>
 				</div>
     		</div>
-        
+			
     
 	<!-- instructions modal linked to specific button via data-target attribute-->
 	<section id="modalInstructions" class="modal fade">

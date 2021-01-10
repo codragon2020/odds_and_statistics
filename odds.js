@@ -1,12 +1,48 @@
 $(document).ready(function(){
 
-    $("#inputForm").submit(function(event) {
-        event.preventDefault();
-        console.log('button was pushed');
+    // Need to add to instructions: 
+    // Odds may be unavailable if the sport is not in season. 
+    // Odds may temporarily become unavailable if bookmakers stop listing games in between rounds. 
+    // If no odds are returned, the request will not count against the usage quota.
+    
+    $("#team_list").on("click", ".game", function() {
+        var team1Odds = $(this).data("oddsteam1")
+        var team2Odds = $(this).data("oddsteam2")
+        var team1 = $(this).text().split(" vs. ")[0];
+        var team2 = $(this).text().split(" vs. ")[1];
+        // console.log('Team 1 ', team1);
+        // console.log('Team 2 ', team2);
+        // console.log('Team 1 Odds ', team1Odds);
+        // console.log('Team 2 Odds ', team2Odds);
 
-        var oddsResult = "";
-        // var team1 = null;
-        // var team2 = null;
+        oddsResult = `
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">TEAMS</th>
+                    <th scope="col">${team1}</th>
+                    <th scope="col">${team2}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">h2h</th>
+                        <td>${team1Odds}</td>
+                        <td>${team2Odds}</td>
+                    </tr>
+                    
+                </tbody>
+                </table>
+            `
+            // Actually displaying the result in html
+            $("#result").html(oddsResult);
+    }) 
+
+    
+
+    $("#oddsForm").submit(function(event) {
+        event.preventDefault();
+        // console.log('button was pushed');
 
         const settings = {
             "async": true,
@@ -16,47 +52,24 @@ $(document).ready(function(){
             "headers": {
                 "x-rapidapi-key": "e6bd58beaamshb738f0d07d4ab00p183921jsn790d8fb0fded",
                 "x-rapidapi-host": "odds.p.rapidapi.com"
-            // ,
-            // "teams": [
-            //     team1,
-            //     team2
-            //     ],
             }
         };
 
         $.ajax(settings).done(function (response) {
-            // team1 = $("#team-1").val();
-            // team1 = $("#team-2").val();
-            console.log(response);
+            // console.log(response);
+            
+            // Loop the data array and create a <p> and store the elements
+            response.data.forEach(function(element) {
+                var gameEl = $('<p>');
+                gameEl.addClass('game');
+                gameEl.text(element.teams[0] + " vs. " + element.teams[1]);
+                // data- 
+                gameEl.attr('data-oddsteam1', element.sites[0].odds.h2h[0])
+                gameEl.attr('data-oddsteam2', element.sites[0].odds.h2h[1])
+                // Append the element to the team list
+                $('#team_list').append(gameEl);
+                
+            });
         });
-
-        oddsResult = `
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">TEAMS</th>
-                <th scope="col">${response.data[0].teams[0]}</th>
-                <th scope="col">${response.data[0].teams[1]}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">h2h</th>
-                    <td>${response.data[0].sites[0].odds.h2h[0]}</td>
-                    <td>${response.data[0].sites[0].odds.h2h[1]}</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                </tr>
-            </tbody>
-            </table>
-        `
     })
 })
