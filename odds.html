@@ -17,22 +17,22 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-        <a class="navbar-brand" href="#">NBA Odds and Statistics</a>
+        <a class="navbar-brand" href="#">NBA Odds</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+         	<span class="navbar-toggler-icon"></span>
         </button>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        	<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-				<a class="nav-link" href="index.html">Statistics<span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+        	<ul class="navbar-nav ml-auto">
+				<li class="nav-item ml-auto">
+					<a class="nav-link" href="index.html">Statistics<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
-				<a class="nav-link" href="odds.html">Odds</a>
+				<li class="nav-item ml-auto active">
+					<a class="nav-link" href="odds.html">Odds<span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
           	<form class="form-inline">
-				<i class="fas fa-basketball-ball"></i>
+				<i class="fas fa-basketball-ball ml-auto"></i>
 			</form>
         </div>
     </nav>
@@ -44,25 +44,13 @@
 					<div class="form-group">
 						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
 					</div>
-					<!-- input for team search 
-					<div class="mb-3">
-						<label for="inputTeam1" class="form-label">Team Name 1</label>
-						<input type="text" class="form-control" id="inputTeam1" placeholder="Team 1...">
-					</div>
-					<!-- input for date/season -->
-					<!-- <div class="mb-3"> -->
-						<!-- <label for="inputTeam2" class="form-label">Team Name 2</label>
-						<input type="text" class="form-control" id="inputTeam2" placeholder="Team 2...">
-					</div> -->
-					<!-- search button -->
+
 					<button type="submit" class="btn btn-primary" id="pullOdds">Search</button>
 				</form>
 
 				<div class="container" id="team_list">
 					<!-- Output of team list -->
 				</div>
-				
-				
 
 				<div id="showOdds" class="table-div">
 					<div id="result"></div>
