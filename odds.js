@@ -72,4 +72,35 @@ $(document).ready(function(){
             });
         });
     })
+
+    // Instructions Modal
+    $("#instructionsButton").on("click", function (e) {
+        e.preventDefault();
+        
+        // Clear all content
+        $("#oddsInstructionText").html("");
+        
+        var instructList = $('<ul>').appendTo('#oddsInstructionText');
+        var liStep1 = $('<li>').text('Click on the "Show Teams Playing" Button').appendTo(instructList);
+        var liStep2 = $('<li>').text('Review list of games by Visitor vs. Home teams').appendTo(instructList);
+        var liStep3 = $('<li>').text('Click on a listed Game').appendTo(instructList);
+        var liStep4 = $('<li>').text('View the Results of the Head-to-Head Odds').appendTo(instructList);
+        var liStep5 = $('<li>').text('Good Luck!').appendTo(instructList);
+        $('#oddsInstructionText').append(liStep1, liStep2, liStep3, liStep4, liStep5)
+
+        // liStep1.text('Click on the "Show Teams Playing" Button').appendTo(instructList);
+            // liStep2.text('Review list of games by Visitor vs. Home teams').appendTo(instructList);
+        // var liStep3 = $('<li>');
+        //     liStep3.text('Click on a listed Game').appendTo(instructList);;
+        // var liStep4 = $('<li>');
+        //     liStep4.text('View the Results of the Head-to-Head Odds').appendTo(instructList);;
+        // var liStep5 = $('<li>');
+        //     liStep5.text('Good Luck!').appendTo(instructList);;
+
+        // Display Instructions modal
+        $("#modalInstructions").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    })
 })
