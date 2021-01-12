@@ -7,7 +7,7 @@ $(document).ready(function(){
     instructionsBtn.click(function(event) {
         event.preventDefault();
         instructionsModal.modal("show");
-    
+
         });
     
     

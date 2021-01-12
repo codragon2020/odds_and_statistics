@@ -17,18 +17,18 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-        <a class="navbar-brand" href="#">NBA Odds and Statistics</a>
+        <a class="navbar-brand" href="#">NBA Odds</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+         	<span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
         	<ul class="navbar-nav ml-auto">
-				<li class="nav-item active ml-auto">
+				<li class="nav-item ml-auto">
 					<a class="nav-link" href="index.html">Statistics<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item ml-auto">
-					<a class="nav-link" href="odds.html">Odds</a>
+				<li class="nav-item ml-auto active">
+					<a class="nav-link" href="odds.html">Odds<span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
           	<form class="form-inline">
@@ -40,64 +40,26 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<form id="inputForm" autocomplete="off">
+				<form id="oddsForm" autocomplete="off">
 					<div class="form-group">
 						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
 					</div>
-					<!-- input for team search  -->
-					<div class="mb-3">
-						<label for="inputTeam" class="form-label">NBA Team Name</label>
-						<input type="text" class="form-control" id="inputTeam" placeholder="Team...">
-					</div>
-					<!-- input for date/season -->
-					<div class="mb-3">
-						<label for="inputSeason" class="form-label">Enter Year of Season</label>
-						<input type="text" class="form-control" id="inputSeason" placeholder="Year...">
-					</div>
-					<!-- search button -->
-					<button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+
+					<button type="submit" class="btn btn-primary" id="pullOdds">Search</button>
 				</form>
 
-				<div id="showStats" class="table-div">
-					<table class="table">
-						<thead>
-						<tr>
-							<th scope="col">W / L</th>
-							<th scope="col">Conference Rank</th>
-							<th scope="col">Division Rank</th>
-							<th scope="col">Win %</th>
-							<th scope="col">Win Streak</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td id="win_loss"></td>
-							<td id="conf_rank"></td>
-							<td id="div_rank"></td>
-							<td id="win_percent"></td>
-							<td id="win_streak"></td>
-						</tr>
-						
-						</tbody>
-					</table>
+				<div class="container" id="team_list">
+					<!-- Output of team list -->
+				</div>
+
+				<div id="showOdds" class="table-div">
+					<div id="result"></div>
 					<!-- div for gif display -->
-					<div id="showGif"></div>
+					<div id="showTeamGif1"></div>
+					<div id="showTeamGif2"></div>
 				</div>
     		</div>
-        
-			<!-- column for search history -->
-			<div class="col-md-4">
-				<div class="card">
-					<div class="card-body">
-					<h5 class="card-title">Search History</h5>
-					<ul class="list-group">
-            <!-- search history populated here -->
-					</div>
-        </div>
-        <button id="clearHistory" class="btn btn-primary">Clear</button>
-			</div>
-    </div>
-	</div>
+			
     
 	<!-- instructions modal linked to specific button via data-target attribute-->
 	<section id="modalInstructions" class="modal fade">
@@ -131,10 +93,7 @@
 					</button>
 				</div>
 				<div class="modal-body" id="errorText">
-                    <!-- Missing Input error message goes here -->
-				</div>
-				<div class="modal-body" id="yearLimit">
-					<!-- Year Limit error message goes here -->
+                    <!-- Alert message goes here -->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-lg" data-dismiss="modal">CLOSE</button>
@@ -146,8 +105,8 @@
     <!-- AJAX for Stats call -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="app.js"></script>   
-	<script src="odds.js"></script>   
+	<script src="app.js"></script>
+	<script src="odds.js"></script>      
 
 	<!-- Bootstrap JS -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
