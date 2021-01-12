@@ -1,19 +1,12 @@
 $(document).ready(function(){
-
-    // Need to add to instructions: 
-    // Odds may be unavailable if the sport is not in season. 
-    // Odds may temporarily become unavailable if bookmakers stop listing games in between rounds. 
-    // If no odds are returned, the request will not count against the usage quota.
-    
+ 
     $("#team_list").on("click", ".game", function() {
         var team1Odds = $(this).data("oddsteam1")
         var team2Odds = $(this).data("oddsteam2")
         var team1 = $(this).text().split(" vs. ")[0];
         var team2 = $(this).text().split(" vs. ")[1];
         // console.log('Team 1 ', team1);
-        // console.log('Team 2 ', team2);
         // console.log('Team 1 Odds ', team1Odds);
-        // console.log('Team 2 Odds ', team2Odds);
 
         oddsResult = `
             <table class="table">
@@ -30,16 +23,16 @@ $(document).ready(function(){
                         <td>${team1Odds}</td>
                         <td>${team2Odds}</td>
                     </tr>
-                    
                 </tbody>
                 </table>
             `
             // Actually displaying the result in html
             $("#result").html(oddsResult);
-    }) 
+    })
 
-    
-
+    // Odds may be unavailable if the sport is not in season. 
+    // Odds may temporarily become unavailable if bookmakers stop listing games in between rounds. 
+    // If no odds are returned, the request will not count against the usage quota.
     $("#oddsForm").submit(function(event) {
         event.preventDefault();
         // console.log('button was pushed');
@@ -68,7 +61,6 @@ $(document).ready(function(){
                 gameEl.attr('data-oddsteam2', element.sites[0].odds.h2h[1])
                 // Append the element to the team list
                 $('#team_list').append(gameEl);
-                
             });
         });
     })
@@ -80,6 +72,7 @@ $(document).ready(function(){
         // Clear all content
         $("#oddsInstructionText").html("");
         
+        // Create unordered list of instructions
         var instructList = $('<ul>').appendTo('#oddsInstructionText');
         var liStep1 = $('<li>').text('Click on the "Show Teams Playing" Button').appendTo(instructList);
         var liStep2 = $('<li>').text('Review list of games by Visitor vs. Home teams').appendTo(instructList);
@@ -87,15 +80,6 @@ $(document).ready(function(){
         var liStep4 = $('<li>').text('View the Results of the Head-to-Head Odds').appendTo(instructList);
         var liStep5 = $('<li>').text('Good Luck!').appendTo(instructList);
         $('#oddsInstructionText').append(liStep1, liStep2, liStep3, liStep4, liStep5)
-
-        // liStep1.text('Click on the "Show Teams Playing" Button').appendTo(instructList);
-            // liStep2.text('Review list of games by Visitor vs. Home teams').appendTo(instructList);
-        // var liStep3 = $('<li>');
-        //     liStep3.text('Click on a listed Game').appendTo(instructList);;
-        // var liStep4 = $('<li>');
-        //     liStep4.text('View the Results of the Head-to-Head Odds').appendTo(instructList);;
-        // var liStep5 = $('<li>');
-        //     liStep5.text('Good Luck!').appendTo(instructList);;
 
         // Display Instructions modal
         $("#modalInstructions").modal({
