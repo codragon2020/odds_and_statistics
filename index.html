@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odds and Statistics</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Odds and Statistics</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="style.css">
-	
+
 	<!-- Basketball Icon  -->
-    <script src="https://kit.fontawesome.com/99dad7dc51.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/99dad7dc51.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-        <a class="navbar-brand" href="#">NBA Odds and Statistics</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-        	<ul class="navbar-nav ml-auto">
+	<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+		<a class="navbar-brand" href="#">NBA Odds and Statistics</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active ml-auto">
 					<a class="nav-link" href="index.html">Statistics<span class="sr-only">(current)</span></a>
 				</li>
@@ -31,18 +35,19 @@
 					<a class="nav-link" href="odds.html">Odds</a>
 				</li>
 			</ul>
-          	<form class="form-inline">
+			<form class="form-inline">
 				<i class="fas fa-basketball-ball ml-auto"></i>
 			</form>
-        </div>
-    </nav>
+		</div>
+	</nav>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<form id="inputForm" autocomplete="off">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
+						<button type="button" class="btn btn-info" id="instructionsButton"
+							data-target="#modalInstructions">Click for instructions</button>
 					</div>
 					<!-- input for team search  -->
 					<div class="mb-3">
@@ -57,10 +62,29 @@
 					<!-- search button -->
 					<button type="submit" class="btn btn-primary" id="searchButton">Search</button>
 				</form>
+			</div>
 
-				<div id="showStats" class="table-div">
-					<table class="table">
-						<thead>
+			<!-- div for gif display -->
+			<div class="col-md-4" id="showGif"><img src="./images/pexels-cottonbro-5274509.jpg"></div>
+
+		<!-- column for search history -->
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Search History</h5>
+					<ul class="list-group searched"></ul>
+					<!-- search history populated here -->
+				</div>
+			</div>
+			<button id="clearHistory" class="btn btn-primary">Clear</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div id="showStats" class="table-div">
+				<table class="table">
+					<thead>
 						<tr>
 							<th scope="col">W / L</th>
 							<th scope="col">Conference Rank</th>
@@ -68,8 +92,8 @@
 							<th scope="col">Win %</th>
 							<th scope="col">Win Streak</th>
 						</tr>
-						</thead>
-						<tbody>
+					</thead>
+					<tbody>
 						<tr>
 							<td id="win_loss"></td>
 							<td id="conf_rank"></td>
@@ -77,26 +101,17 @@
 							<td id="win_percent"></td>
 							<td id="win_streak"></td>
 						</tr>
-						
-						</tbody>
-					</table>
-					<!-- div for gif display -->
-					<div id="showGif"></div>
-				</div>
-    		</div>
-        
-			<!-- column for search history -->
-			<div class="col-md-4">
-				<div class="card">
-					<div class="card-body">
-					<h5 class="card-title">Search History</h5>
-					<p id="displaySearchHistory"></p>
-					</div>
-				</div>
+
+					</tbody>
+				</table>
 			</div>
-      	</div>
+		</div>
 	</div>
-    
+
+	</div>
+
+
+
 	<!-- instructions modal linked to specific button via data-target attribute-->
 	<section id="modalInstructions" class="modal fade">
 		<div class="modal-dialog modal-dialog-centered">
@@ -117,7 +132,7 @@
 			</div>
 		</div>
 	</section>
-		
+
 	<!-- modal for error message if user leaves either field blank -->
 	<section id="modalError" class="modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
@@ -129,7 +144,7 @@
 					</button>
 				</div>
 				<div class="modal-body" id="errorText">
-                    <!-- Missing Input error message goes here -->
+					<!-- Missing Input error message goes here -->
 				</div>
 				<div class="modal-body" id="yearLimit">
 					<!-- Year Limit error message goes here -->
@@ -141,14 +156,19 @@
 		</div>
 	</section>
 
-    <!-- AJAX for Stats call -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="app.js"></script>   
-	<script src="odds.js"></script>   
+	<!-- AJAX for Stats call -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="app.js"></script>
+	<script src="odds.js"></script>
 
 	<!-- Bootstrap JS -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+
 </body>
+
 </html>
