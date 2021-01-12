@@ -1,16 +1,16 @@
-$(document).ready(function(){
+$(document).ready(function () {
     // New line test
     // Instructions modal function
     var instructionsBtn = $("#instructionsButton")
     var instructionsModal = $("#modalInstructions")
-        
-    instructionsBtn.click(function(event) {
+
+    instructionsBtn.click(function (event) {
         event.preventDefault();
         instructionsModal.modal("show");
 
-        });
-    
-    
+    });
+
+
     var missingInput = false;
 
     function inputRequired() {
@@ -30,30 +30,11 @@ $(document).ready(function(){
             });
             // Exit
             return;
-        
+
         }
     }
-    var localStorage = {};
-    var keyCount = 0;
-    var teamStore = null;
-    var teamStoreName = null;
 
-    // Submit method to pull content from movieForm and run event function
-    $("#inputForm").submit(function(event) {
-        event.preventDefault();
-        console.log('button was pushed');
-
-        // Variable to be used in url for API call 
-        var team = $("#inputTeam").val();       
-        
-        inputRequired();
-        
-        if (missingInput == true) {
-            console.log('missingInput = True');
-            return;
-        }
-
-        // API Call configuration
+    function searchTeam(team) {
         const settings = {
             "async": true,
             "crossDomain": true,
@@ -70,32 +51,54 @@ $(document).ready(function(){
             console.log(team);
             console.log(response.api.teams[0].teamId); // TeamId
 
-            var teamStoreName = $(".list-group").addClass("list-group-item");
-            teamStoreName.append("<li>" + team + "</li>");
-            // Local storage
-            var local = localStorage.setItem(keyCount, team);
-            keyCount = keyCount + 1;
 
             var teamId = response.api.teams[0].teamId;
             console.log('TeamId stored to variable', teamId);
 
             // Result to be displayed
             teamResult = `
-            <img class="img-thumnail displayed" width="200" height="200" src="${response.api.teams[0].logo}"/>
-            `
+        <img class="img-thumnail displayed" width="200" height="200" src="${response.api.teams[0].logo}"/>
+        `
             $("#showGif").html(teamResult);
 
+            if (history.indexOf(team) === -1) {
+                history.push(team);
+                window.localStorage.setItem("history", JSON.stringify(history));
+                makeRow(team);
+              }
             teamStats(teamId);
         });
+    }
+    // $(".searched").on("click", "li", function() {
+    //     searchTeam($(this).text())
+    // })
+    
+    function makeRow(text) {
+        var li = $("<li>").text(text);
+        $(".searched").append(li)
+        
+    }
+    // Submit method to pull content from movieForm and run event function
+    $("#inputForm").submit(function (event) {
+        event.preventDefault();
+        console.log('button was pushed');
+
+        // Variable to be used in url for API call 
+        var team = $("#inputTeam").val();
+
+        searchTeam(team);
+        inputRequired();
+        // renderSearchHistory();
+
+        if (missingInput == true) {
+            console.log('missingInput = True');
+            return;
+        }
+
     })
 
-    for (var i = 0; i < localStorage.length; i++) {
-        var teamStore = localStorage.getItem(i);
-        console.log(teamStore);
-        var teamStoreName = $(".list-group").addClass("list-group-item");
-        teamStoreName.append("<li>" + teamStore + "</li>");
-        }
-        
+
+
 
     function teamStats(teamId) {
         // teamId = 18;
@@ -114,7 +117,7 @@ $(document).ready(function(){
                 backdrop: 'static',
                 keyboard: false
             });
-            
+
             return;
         }
 
@@ -134,12 +137,12 @@ $(document).ready(function(){
             console.log(teamId); // pulls the teamId
             console.log(response); // "GET standings/standard/2019"
             console.log(response.api.standings[0].teamId); // teamId of standings[0]
-            
+
             // For Loop to match teamId with response
             var standings = response.api.standings;
-            
-            for ( var i = 0; i < standings.length; i++ ) {
-                if ( standings[i].teamId === teamId ) {
+
+            for (var i = 0; i < standings.length; i++) {
+                if (standings[i].teamId === teamId) {
                     // responseTeamId = standings[i];
                     console.log('Inside the for loop, found it ', teamId);
                     console.log(response.api.standings[i])
@@ -161,4 +164,10 @@ $(document).ready(function(){
             $("#win_streak").html(winStreak);
         })
     }
+
+    var history = JSON.parse(window.localStorage.getItem("history")) || [];
+    for (i=0; i < history.length; i++) {
+        makeRow(history);
+    }
 })
+
