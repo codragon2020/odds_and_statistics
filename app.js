@@ -69,9 +69,9 @@ $(document).ready(function () {
             teamStats(teamId);
         });
     }
-    // $(".searched").on("click", "li", function() {
-    //     searchTeam($(this).text())
-    // })
+    $(".searched").on("click", "li", function() {
+        searchTeam($(this).text())
+    })
     
     function makeRow(text) {
         var li = $("<li>").text(text);
@@ -88,7 +88,6 @@ $(document).ready(function () {
 
         searchTeam(team);
         inputRequired();
-        // renderSearchHistory();
 
         if (missingInput == true) {
             console.log('missingInput = True');
@@ -169,5 +168,11 @@ $(document).ready(function () {
     for (i=0; i < history.length; i++) {
         makeRow(history);
     }
-})
+
+    // clear history click function needs attention 
+    // $("#clearHistory").click(function() {
+    //     localStorage.clear() 
+    //     })
+    })
+
 
