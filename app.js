@@ -1,14 +1,25 @@
 $(document).ready(function () {
-    // New line test
-    // Instructions modal function
-    var instructionsBtn = $("#instructionsButton")
-    var instructionsModal = $("#modalInstructions")
 
-    instructionsBtn.click(function (event) {
-        event.preventDefault();
-        instructionsModal.modal("show");
-
-    });
+    // Stats Page Instructions Modal
+    $("#instructionsButton").on("click", function (e) {
+        e.preventDefault();
+        
+        // Clear all content
+        $("#updateText").html("");
+        
+        // Create unordered list of instructions
+        var instructList = $('<ul>').appendTo('#updateText');
+            $('<li>').text('Enter the team you want to get stats for').appendTo(instructList);
+            $('<li>').text('Enter the year in which you would like the stats').appendTo(instructList);
+            $('<li>').text('Note: The statistics data only goes back 3 years').appendTo(instructList);
+            $('<li>').text('Behold stats!').appendTo(instructList);
+        
+        // Display Instructions modal
+        $("#modalInstructions").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    })
 
 
     var missingInput = false;
