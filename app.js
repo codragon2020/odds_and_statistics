@@ -14,8 +14,8 @@ $(document).ready(function () {
             $('<li>').text('Click the "Search" button').appendTo(instructList);
         
         var otherList = $('<ul>').appendTo('#updateText');
-            $('<p>').text('Behold stats!').css("font-weight", "bold").appendTo(otherList);
             $('<p>').text('-------------------------------------------------').appendTo(otherList);
+            $('<h5>').text('Behold stats!').css("font-weight", "bold").appendTo(otherList);
             $('<p>').text('Note: The statistics data only goes back 3 years').appendTo(otherList);
 
         
@@ -104,7 +104,7 @@ $(document).ready(function () {
 
     function makeRow(text) {
         // $(".searched").empty();
-        var li = $("<li>").text(text);
+        var li = $("<li>").text(text).css("list-style", "none");
         $(".searched").append(li)
     }
 
