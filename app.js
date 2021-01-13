@@ -85,15 +85,36 @@ $(document).ready(function () {
             teamStats(teamId);
         });
     }
+
     $(".searched").on("click", "li", function() {
         searchTeam($(this).text())
     })
     
+    // Gets history and makes a row for each item in array
+    var history = JSON.parse(window.localStorage.getItem("history"));
+    for (i = 0; i < history.length; i++) {
+        makeRow(history[i]);
+    }
+
+    // $(window).on('load', function(){
+    //     $(".searched").innerHTML = "";
+    //     // $(".searched").empty();
+    //     makeRow(history);
+    // });
+
     function makeRow(text) {
+        // $(".searched").empty();
         var li = $("<li>").text(text);
         $(".searched").append(li)
-        
     }
+
+    // Clears the history array on page and localStorage on computer
+    $("#clearHistory").on("click",function() {
+        // console.log('inside the clearHistory function')
+        $(".searched").empty();
+        localStorage.clear();
+    })
+
     // Submit method to pull content from movieForm and run event function
     $("#inputForm").submit(function (event) {
         event.preventDefault();
@@ -109,11 +130,7 @@ $(document).ready(function () {
             console.log('missingInput = True');
             return;
         }
-
     })
-
-
-
 
     function teamStats(teamId) {
         // teamId = 18;
@@ -180,15 +197,12 @@ $(document).ready(function () {
         })
     }
 
-    var history = JSON.parse(window.localStorage.getItem("history")) || [];
-    for (i=0; i < history.length; i++) {
-        makeRow(history);
-    }
-
     // clear history click function needs attention 
     // $("#clearHistory").click(function() {
     //     localStorage.clear() 
     //     })
-    })
+
+
+})
 
 
