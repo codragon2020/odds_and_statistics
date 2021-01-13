@@ -8,11 +8,16 @@ $(document).ready(function () {
         $("#updateText").html("");
         
         // Create unordered list of instructions
-        var instructList = $('<ul>').appendTo('#updateText');
+        var instructList = $('<ol>').appendTo('#updateText');
             $('<li>').text('Enter the team you want to get stats for').appendTo(instructList);
             $('<li>').text('Enter the year in which you would like the stats').appendTo(instructList);
-            $('<li>').text('Note: The statistics data only goes back 3 years').appendTo(instructList);
-            $('<li>').text('Behold stats!').appendTo(instructList);
+            $('<li>').text('Click the "Search" button').appendTo(instructList);
+        
+        var otherList = $('<ul>').appendTo('#updateText');
+            $('<p>').text('Behold stats!').css("font-weight", "bold").appendTo(otherList);
+            $('<p>').text('-------------------------------------------------').appendTo(otherList);
+            $('<p>').text('Note: The statistics data only goes back 3 years').appendTo(otherList);
+
         
         // Display Instructions modal
         $("#modalInstructions").modal({

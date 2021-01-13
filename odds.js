@@ -56,6 +56,7 @@ $(document).ready(function(){
                 var gameEl = $('<p>');
                 gameEl.addClass('game');
                 gameEl.text(element.teams[0] + " vs. " + element.teams[1]);
+                gameEl.css("font-weight", "bold");
                 // data- 
                 gameEl.attr('data-oddsteam1', element.sites[0].odds.h2h[0])
                 gameEl.attr('data-oddsteam2', element.sites[0].odds.h2h[1])
