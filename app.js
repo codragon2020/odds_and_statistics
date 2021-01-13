@@ -177,13 +177,12 @@ $(document).ready(function () {
 
     var history = JSON.parse(window.localStorage.getItem("history")) || [];
     for (i=0; i < history.length; i++) {
-        makeRow(history);
+        makeRow(history[i]);
     }
 
-    // clear history click function needs attention 
-    // $("#clearHistory").click(function() {
-    //     localStorage.clear() 
-    //     })
-    })
+    
+    // $("#clearHistory").on("click",function() {
+    //     localStorage.clear();
+    // })
 
-
+})
