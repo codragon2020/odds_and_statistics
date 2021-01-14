@@ -12,14 +12,14 @@ $(document).ready(function(){
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">TEAMS</th>
+                    <th scope="col">Matchup</th>
                     <th scope="col">${team1}</th>
                     <th scope="col">${team2}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">h2h</th>
+                        <th scope="row">Odds</th>
                         <td>${team1Odds}</td>
                         <td>${team2Odds}</td>
                     </tr>
