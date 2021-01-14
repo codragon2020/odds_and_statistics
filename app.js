@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    var missingInput = false;
+
     // Stats Page Instructions Modal
     $("#instructionsButton").on("click", function (e) {
         e.preventDefault();
@@ -26,18 +28,15 @@ $(document).ready(function () {
         });
     })
 
-
-    var missingInput = false;
-
     function inputRequired() {
         // User must input Team name and Year before clicking Search
         // If player has not entered team name or year show alert message
-        if ($('#inputTeam').val() === "" | $('#inputSeason').val() === "") {
-            console.log("input is empty")
+        if ($('#inputTeam').val() === "" || $('#inputSeason').val() === "") {
+            // console.log("input is empty")
             missingInput = true;
 
             // Set error message on ALERT modal
-            $("#errorText").text("You must enter the Team Name and Year");
+            $("#errorText").text("You must enter the Team Name and Year").css("font-weight", "bold");
 
             // Display ALERT modal
             $("#modalError").modal({
@@ -46,7 +45,6 @@ $(document).ready(function () {
             });
             // Exit
             return;
-
         }
     }
 
@@ -96,12 +94,7 @@ $(document).ready(function () {
         makeRow(history[i]);
     }
 
-    // $(window).on('load', function(){
-    //     $(".searched").innerHTML = "";
-    //     // $(".searched").empty();
-    //     makeRow(history);
-    // });
-
+    // Makes a row for each new searched Team name and appends to the list
     function makeRow(text) {
         // $(".searched").empty();
         var li = $("<li>").text(text).css("list-style", "none");
@@ -125,31 +118,24 @@ $(document).ready(function () {
 
         searchTeam(team);
         inputRequired();
-
-        if (missingInput == true) {
-            console.log('missingInput = True');
-            return;
-        }
     })
 
     function teamStats(teamId) {
         // teamId = 18;
         console.log(teamId);  // pulls the teamId
 
-        // var year = 2019;
         var year = $("#inputSeason").val();
 
-        if (year < 2018) {
+        if (year < 2018 && year !== "") {
 
             // Set error message on ALERT modal
-            $("#yearLimit").text("The data only goes back 3 years");
+            $("#yearLimit").text("Note: The data only goes back 3 years!").css("font-weight", "bold");
 
             // Display Year Limit modal
             $("#modalError").modal({
                 backdrop: 'static',
                 keyboard: false
             });
-
             return;
         }
 
@@ -166,19 +152,17 @@ $(document).ready(function () {
         };
         // AJAX call
         $.ajax(stats).done(function (response) {
-            console.log(teamId); // pulls the teamId
-            console.log(response); // "GET standings/standard/2019"
-            console.log(response.api.standings[0].teamId); // teamId of standings[0]
+            // console.log(teamId); // pulls the teamId
+            // console.log(response); // "GET standings/standard/2019"
+            // console.log(response.api.standings[0].teamId); // teamId of standings[0]
 
             // For Loop to match teamId with response
             var standings = response.api.standings;
 
             for (var i = 0; i < standings.length; i++) {
                 if (standings[i].teamId === teamId) {
-                    // responseTeamId = standings[i];
-                    console.log('Inside the for loop, found it ', teamId);
-                    console.log(response.api.standings[i])
-                    console.log(response.api.standings[i].loss)
+                    // console.log('Inside the for loop, found it ', teamId);
+                    // console.log(response.api.standings[i])
 
                     var win = response.api.standings[i].win
                     var loss = response.api.standings[i].loss

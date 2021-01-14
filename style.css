@@ -23,6 +23,7 @@ img.displayed {
     margin-right: auto 
 }
 
+/* Modal Close button */
 .closeBtn {
     background-color: #FBB03B;
     color: #333;
@@ -32,10 +33,7 @@ img.displayed {
     margin-top: 10px;
 }
 
-li {
-    list-style: none;
-}
-
+/* Team Gif for Stats */
 .gifStyle {
     margin-top: 10px;
     margin-bottom: 10px;
