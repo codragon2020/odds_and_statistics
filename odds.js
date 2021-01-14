@@ -49,7 +49,7 @@ $(document).ready(function(){
         };
 
         $.ajax(settings).done(function (response) {
-            // console.log(response);
+            console.log(response);
             
             // Loop the data array and create a <p> and store the elements
             response.data.forEach(function(element) {
