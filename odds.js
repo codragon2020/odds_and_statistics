@@ -56,6 +56,7 @@ $(document).ready(function(){
                 var gameEl = $('<p>');
                 gameEl.addClass('game');
                 gameEl.text(element.teams[0] + " vs. " + element.teams[1]);
+                gameEl.css("font-weight", "bold");
                 // data- 
                 gameEl.attr('data-oddsteam1', element.sites[0].odds.h2h[0])
                 gameEl.attr('data-oddsteam2', element.sites[0].odds.h2h[1])
@@ -73,12 +74,13 @@ $(document).ready(function(){
         $("#oddsInstructionText").html("");
         
         // Create unordered list of instructions
-        var instructList = $('<ul>').appendTo('#oddsInstructionText');
+        var instructList = $('<ol>').appendTo('#oddsInstructionText');
             $('<li>').text('Click on the "Show Teams Playing" Button').appendTo(instructList);
             $('<li>').text('Review list of games by Visitor vs. Home teams').appendTo(instructList);
             $('<li>').text('Click on a listed Game').appendTo(instructList);
             $('<li>').text('View the Results of the Head-to-Head Odds').appendTo(instructList);
-            $('<li>').text('Good Luck!').appendTo(instructList);
+            $('<p>').text('-------------------------------------------------').appendTo(instructList);
+            $('<h5>').text('Good Luck!').appendTo(instructList);
 
         // Display Instructions modal
         $("#modalInstructions").modal({

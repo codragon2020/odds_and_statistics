@@ -23,6 +23,15 @@ img.displayed {
     margin-right: auto 
 }
 
+.closeBtn {
+    background-color: #FBB03B;
+    color: #333;
+    border: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
 li {
     list-style: none;
 }

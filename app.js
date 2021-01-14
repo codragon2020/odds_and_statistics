@@ -8,11 +8,16 @@ $(document).ready(function () {
         $("#updateText").html("");
         
         // Create unordered list of instructions
-        var instructList = $('<ul>').appendTo('#updateText');
+        var instructList = $('<ol>').appendTo('#updateText');
             $('<li>').text('Enter the team you want to get stats for').appendTo(instructList);
             $('<li>').text('Enter the year in which you would like the stats').appendTo(instructList);
-            $('<li>').text('Note: The statistics data only goes back 3 years').appendTo(instructList);
-            $('<li>').text('Behold stats!').appendTo(instructList);
+            $('<li>').text('Click the "Search" button').appendTo(instructList);
+        
+        var otherList = $('<ul>').appendTo('#updateText');
+            $('<p>').text('-------------------------------------------------').appendTo(otherList);
+            $('<h5>').text('Behold stats!').css("font-weight", "bold").appendTo(otherList);
+            $('<p>').text('Note: The statistics data only goes back 3 years').appendTo(otherList);
+
         
         // Display Instructions modal
         $("#modalInstructions").modal({
@@ -80,15 +85,36 @@ $(document).ready(function () {
             teamStats(teamId);
         });
     }
+
     $(".searched").on("click", "li", function() {
         searchTeam($(this).text())
     })
     
-    function makeRow(text) {
-        var li = $("<li>").text(text);
-        $(".searched").append(li)
-        
+    // Gets history and makes a row for each item in array
+    var history = JSON.parse(window.localStorage.getItem("history"));
+    for (i = 0; i < history.length; i++) {
+        makeRow(history[i]);
     }
+
+    // $(window).on('load', function(){
+    //     $(".searched").innerHTML = "";
+    //     // $(".searched").empty();
+    //     makeRow(history);
+    // });
+
+    function makeRow(text) {
+        // $(".searched").empty();
+        var li = $("<li>").text(text).css("list-style", "none");
+        $(".searched").append(li)
+    }
+
+    // Clears the history array on page and localStorage on computer
+    $("#clearHistory").on("click",function() {
+        // console.log('inside the clearHistory function')
+        $(".searched").empty();
+        localStorage.clear();
+    })
+
     // Submit method to pull content from movieForm and run event function
     $("#inputForm").submit(function (event) {
         event.preventDefault();
@@ -104,11 +130,7 @@ $(document).ready(function () {
             console.log('missingInput = True');
             return;
         }
-
     })
-
-
-
 
     function teamStats(teamId) {
         // teamId = 18;
