@@ -1,6 +1,6 @@
 /* General styling */
 .navbar-custom {
-    background-color: rgb(151, 150, 150)
+    background-color: rgb(177, 169, 169);
 }
 
 .container {
@@ -30,4 +30,21 @@ img.displayed {
     font-size: 1.3em;
     font-weight: 500;
     margin-top: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+.gifStyle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonStyle {
+    margin-top: 10px;
+}
+
+.cardWrapper {
+    width: 350px;
 }

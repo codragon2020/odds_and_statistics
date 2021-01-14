@@ -197,12 +197,14 @@ $(document).ready(function () {
         })
     }
 
-    // clear history click function needs attention 
-    // $("#clearHistory").click(function() {
-    //     localStorage.clear() 
-    //     })
+    var history = JSON.parse(window.localStorage.getItem("history")) || [];
+    for (i=0; i < history.length; i++) {
+        makeRow(history[i]);
+    }
 
+    
+    // $("#clearHistory").on("click",function() {
+    //     localStorage.clear();
+    // })
 
 })
-
-
