@@ -84,3 +84,9 @@ img.displayed {
 .teamListStyle {
     float: left;
 }
+
+@media (max-width: 767.98px) {
+    .searchToggle {
+        display: none;
+    }
+}
