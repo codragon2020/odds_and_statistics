@@ -64,9 +64,8 @@ $(document).ready(function () {
         // AJAX call
         $.ajax(settings).done(function (response) {
             // team = $("#inputTeam").val()
-            console.log(team);
-            console.log(response.api.teams[0].teamId); // TeamId
-
+            // console.log(team);
+            // console.log(response.api.teams[0].teamId); // TeamId
 
             var teamId = response.api.teams[0].teamId;
             console.log('TeamId stored to variable', teamId);
@@ -86,13 +85,14 @@ $(document).ready(function () {
         });
     }
 
-    $(".searched").on("click", "li", function() {
+    $(".searched").on("click", function() {
         searchTeam($(this).text())
     })
     
     // Gets history and makes a row for each item in array
-    var history = JSON.parse(window.localStorage.getItem("history"));
+    var history = JSON.parse(window.localStorage.getItem("history")) || [];
     for (i = 0; i < history.length; i++) {
+        // console.log(history[i])
         makeRow(history[i]);
     }
 
@@ -196,15 +196,4 @@ $(document).ready(function () {
             $("#win_streak").html(winStreak);
         })
     }
-
-    var history = JSON.parse(window.localStorage.getItem("history")) || [];
-    for (i=0; i < history.length; i++) {
-        makeRow(history[i]);
-    }
-
-    
-    // $("#clearHistory").on("click",function() {
-    //     localStorage.clear();
-    // })
-
 })
