@@ -169,7 +169,6 @@ $(document).ready(function () {
                     var confRank = response.api.standings[i].conference.rank
                     var divRank = response.api.standings[i].division.rank
                     var winPercent = response.api.standings[i].winPercentage
-                    var winStreak = response.api.standings[i].winStreak
                     break;
                 }
             };
@@ -177,7 +176,6 @@ $(document).ready(function () {
             $("#conf_rank").html(confRank);
             $("#div_rank").html(divRank);
             $("#win_percent").html(winPercent);
-            $("#win_streak").html(winStreak);
         })
     }
 })
