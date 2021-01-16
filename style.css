@@ -81,6 +81,7 @@ img.displayed {
     float: left;
 }
 
+/* Responsive magic */
 @media (min-width: 992px) {
     img {
         width: 250px;
@@ -91,6 +92,7 @@ img.displayed {
         font-size: 15px;
     }
 }
+
 @media (min-width: 768px) {
     .oddsHeader {
         font-size: 25px;
