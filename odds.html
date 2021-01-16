@@ -16,12 +16,14 @@
 </head>
 <body>
 
+	<!-- Navbar for Odds page -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <a class="navbar-brand" href="#">NBA Odds</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          	<span class="navbar-toggler-icon"></span>
-        </button>
-      
+		</button>
+		
+		<!-- Associated links -->
         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
         	<ul class="navbar-nav ml-auto">
 				<li class="nav-item ml-auto">
@@ -37,40 +39,42 @@
         </div>
     </nav>
 
+	<!-- Container for static title -->
 	<div class="container oddsContainer">
 		<div class="row">
-			<div class="col-md-8 col-lg-12">
+			<div class="">
 				<form id="oddsForm" autocomplete="off">
 					<div class="form-group formStyle">
 						<button type="button" class="btn btn-info" id="instructionsButton" data-target="#modalInstructions">Click for instructions</button>
 					</div>
-
 					<button type="submit" class="btn btn-primary" id="pullOdds">Show Teams Playing</button>
 				</form>
-
-					<h1 class="h1Style"> Today's Matchups!</h1>
-					<style>
+				<h1 class="h1Style"> Today's Matchups!</h1>
+				<style>
 					h1 {text-align: center;}
 					div {text-align: center;}
 					div table {text-align: center;}
-					</style>
+				</style>
 			</div>
 		</div>
 	</div>
 	<br>
 		
+	<!-- Container for dynamic content -->
 	<div class="container">
 	    <div class="row">
-			<div class="col-lg-6 col-md-8 col-sm-8 teamListColumn">
-				<h2><strong>Team Matchups:</strong></h2><br>
-				<div id="team_list"></div>	<!-- Output of team list -->
+			<!-- Static header and dynamic list -->
+			<div class="col-lg-6 col-md-6 teamListColumn oddsHeader">
+				<strong>Team Matchups:</strong><br>
+				<div id="team_list" class="oddsContent"></div>	
+				<!-- Output of team list -->
 			</div>
-
-
-			<div class="col-lg-6 col-md-8 col-sm-8">
-				<h2><strong>Away Team&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Home Team</strong></h2><br>
-				<div id="showOdds" class="table-div">
-				<div id="result"></div> <br>
+			<!-- Static header and dynamic table -->
+			<div class="col-lg-6 col-md-6 oddsHeader">
+				<strong>Away Team&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Home Team</strong><br>
+				<div id="showOdds" class="table-div oddsContent">
+				<div id="result"></div> 
+				<br>
 				<!-- div for gif display -->
 				<div id="showTeamGif1"></div>
 				<div id="showTeamGif2"></div>

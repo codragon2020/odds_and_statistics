@@ -43,10 +43,6 @@ img.displayed {
     margin-top: 10px;
 }
 
-.cardWrapper {
-    width: 350px;
-}
-
 .oddsContainer {
     display: flex;
     justify-content: center;
@@ -85,8 +81,38 @@ img.displayed {
     float: left;
 }
 
-@media (max-width: 767.98px) {
+/* Responsive magic */
+@media (min-width: 992px) {
+    img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .oddsContent {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .oddsHeader {
+        font-size: 25px;
+    }
+
+    .oddsContent {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
     .searchToggle {
         display: none;
+    }
+
+    .oddsHeader {
+        font-size: 25px;
+    }
+
+    .oddsContent {
+        font-size: 15px;
     }
 }

@@ -46,11 +46,11 @@
 	<!-- Main Container -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-8">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-9">
 				<form id="inputForm" autocomplete="off">
 					<div class="form-group">
 						<button type="button" class="btn btn-info" id="instructionsButton"
-							data-target="#modalInstructions"><i class="fa fa-chevron-right styleArrow"></i>Click for instructions</button>
+							data-target="#modalInstructions">Click for instructions</button>
 					</div>
 					<!-- input for team search  -->
 					<div class="mb-3">
@@ -68,52 +68,48 @@
 			</div>
 
 			<!-- Team Logo gif display -->
-			<div class="col-lg-4 col-md-4 col-sm-8 gifStyle" id="showGif"><img src="./images/pexels-cottonbro-5274509.jpg"></div>
+			<div class="col-lg-4 col-md-4 col-sm-9 col-9 gifStyle" id="showGif"><img src="./images/pexels-cottonbro-5274509.jpg" width="225px" height="225px"></div>
 
-		<!-- column for search history -->
+			<!-- column for search history -->
 			<div class="col-lg-4 col-md-4 col-sm-8 searchToggle">
 			   <div class="cardWrapper">
-				<div class="card">
-					<div class="card-body cardStyle">
-						<h5 class="card-title">Search History</h5>
-						<ul class="list-group searched"></ul>
-					<!-- search history populated here -->
+					<div class="card">
+						<div class="card-body cardStyle">
+							<h5 class="card-title">Search History</h5>
+							<ul class="list-group searched"></ul>
+						<!-- search history populated here -->
+						</div>
 					</div>
+					<button id="clearHistory" class="buttonStyle btnStyle">Clear</button>
 				</div>
-			<button id="clearHistory" class="buttonStyle btnStyle">Clear</button>
-		</div>
-	</div>
-</div>
-
-	<!-- Table for Stats -->
-	<div class="row">
-		<div class="col-md-8">
-			<div id="showStats" class="table-div">
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">W / L</th>
-							<th scope="col">Conference Rank</th>
-							<th scope="col">Division Rank</th>
-							<th scope="col">Win %</th>
-							<th scope="col">Win Streak</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td id="win_loss"></td>
-							<td id="conf_rank"></td>
-							<td id="div_rank"></td>
-							<td id="win_percent"></td>
-							<td id="win_streak"></td>
-						</tr>
-
-					</tbody>
-				</table>
 			</div>
 		</div>
-	</div>
 
+		<!-- Table for Stats -->
+		<div class="row">
+			<div class="col-md-8">
+				<div id="showStats" class="table-div">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">W/L</th>
+								<th scope="col">Conference Rank</th>
+								<th scope="col">Division Rank</th>
+								<th scope="col">Win %</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="win_loss"></td>
+								<td id="conf_rank"></td>
+								<td id="div_rank"></td>
+								<td id="win_percent"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Modals -->
