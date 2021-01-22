@@ -32,9 +32,21 @@ As a sports enthusiast, I want to access all NBA statistics and odds data, so th
 
 https://codragon2020.github.io/odds_and_statistics/
 
+## Contributors
+
+[Shauna Dunn](https://github.com/sleepytomatoes)
+[Ethan Russell](https://github.com/eruss13)
+[Jason McGinthy](https://github.com/codragon2020)
+
 **This site was made with:**
 
 ![tech stack](./images/html-css-js.png)
 
 
 ## Screenshots
+
+![Home Page](./images/landing_page.png)
+
+![Statistics Page](./images/statistics.png)
+
+![Odds Page](./images/odds.png)
