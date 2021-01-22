@@ -38,3 +38,9 @@ https://codragon2020.github.io/odds_and_statistics/
 
 
 ## Screenshots
+
+![Home Page](./images/landing_page.png)
+
+![Statistics Page](./images/statistics.png)
+
+![Odds Page](./images/odds.png)
